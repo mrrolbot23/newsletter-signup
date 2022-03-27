@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 // Input your Mailchimp apiKey and server below
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 mailchimp.setConfig({
-  apiKey: "651ec98b5fd82abca5a69b3571df7910-us14",
+  apiKey: "8b4b11f77d225fdb1bf777e12c9c960e-us14",
   server: "us14",
 });
 //This is your List ID or Audience ID
@@ -37,7 +37,9 @@ app.post("/", (req, res) => {
         },
       });
       res.redirect("success.html");
+      return;
     } catch (error) {
+      console.error(error);
       res.redirect("fail.html");
     }
   }
