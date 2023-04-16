@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 // Input your Mailchimp apiKey and server below
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 mailchimp.setConfig({
-  apiKey: "TYPE YOUR API KEY HERE",
-  server: "SERVER NAME EXAMPLE ----> us14",
+  apiKey: process.env.REACT_APP_API_KEY,
+  server: "us14",
 });
 //This is your List ID or Audience ID
-const listId = "LIST ID OR AUDIENCE ID";
+const listId = process.env.REACT_APP_AUDIENCE_ID;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
